@@ -11,7 +11,6 @@ lAnGsUnGpOsT_PoT(){
                 local gas=$(curl -H "Accept: application/json" \
                 "https://leakix.net/search?page=$i&q=$ba&scope=leak" -Ss|jq .'[].ip'|grep -Eo "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b")
                 printf '%s\n' "${gas}"|sort -u
-                echo -ne "${cyan}[+]masukkan ${putih}namafile : "; read inputFile
                 touch $inputFile
                 echo -e "$gas"|uniq >> $inputFile
             done
@@ -31,7 +30,7 @@ sending_(){
               fi
               done
 }
-
+echo -ne "${cyan}[+]masukkan ${putih}namafile : "; read inputFile
 echo -ne "${hijau}site${putih}: "; read ba
 echo -ne "page: "; read x
 lAnGsUnGpOsT_PoT
